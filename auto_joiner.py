@@ -429,22 +429,6 @@ def join_meeting(meeting):
 
     print(f"Joined meeting: {meeting.title}")
 
-# send greeting
-
-# check if greeting in json is empty
-    if config["greeting"] != "":
-
-# execute clicking on show conversation button
-        msg_btn = wait_until_found("#chat-button > ng-include > svg", 30)
-        if msg_btn is None:
-            return
-        msg_btn.click()
-
-#send reply
-        reply_box = browser.find_element_by_xpath("/html/body/div[1]/div[2]/div[2]/div[1]/div/calling-screen/div/div[2]/meeting-panel-components/calling-chat/div/context-message-pane/div[2]/new-message/div/div[2]/form/div[4]/div[1]/div[2]/div/div/div[2]/div/div/div/div")
-        reply_box.send_keys(config['greeting'])
-        reply_box.send_keys(Keys.ENTER)
-
     if mode != 3:
         switch_to_teams_tab()
     else:
